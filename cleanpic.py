@@ -9,7 +9,7 @@ to_tensor = transforms.ToTensor()
 def cleanpic(in_file, out_file,n = 1):
 	md = torch.load('model_X323.pkl',map_location=torch.device('cpu'))
 	md.eval()
-	pic = Image.open(in_file)
+	pic = Image.open(in_file).convert("RGB")
 	w,h = pic.size
 	pic = pic.resize((400, h * 400 // w ),Image.ANTIALIAS)
 	tmp = to_tensor(pic).unsqueeze(0)
