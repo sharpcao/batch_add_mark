@@ -23,7 +23,7 @@ def cleanpic(in_file, out_file,n = 1):
 	out_pic.save(out_file)
 
 def main(argv):
-	in_file = ''
+	in_file = argv[0]
 	out_file = 'out.png'
 	repeat_num = 1
 	try:
@@ -41,6 +41,8 @@ def main(argv):
 			out_file = arg
 		elif opt == '-n':
 			repeat_num = int(arg)
+		else:
+			print(arg)
 
 	cleanpic(in_file,out_file,repeat_num)
 	print('\ndone!')
